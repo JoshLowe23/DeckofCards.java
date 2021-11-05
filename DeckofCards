@@ -1,0 +1,50 @@
+public class DECKofCards {
+    public static void main(String[] args) {
+      String[] SUITS = {"Clubs", "Diamonds", "Hearts", "Spades"}; //initialising the suits of the deck in a String array named 'SUITS'
+      String[] FACES = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10","Jack", "Queen", "King"}; //initialising the ranks of the deck in a String array named 'RANKS'
+        // initialize deck
+        int n = SUITS.length * FACES.length; // a deck consists of 4*13 cards
+        String[] deck = new String[n];
+        for (int you = 0; you < FACES.length; you++) {
+            for (int a = 0; a < SUITS.length; a++) {
+                deck[SUITS.length*you + a] = FACES[you] + " of " + SUITS[a];
+            } 
+        }
+        // shuffle
+        for (int you = 0; you < n; you++) {
+            int r = you + (int) (Math.random() * (n-you)); //using random function
+            String temp = deck[r];
+            deck[r] = deck[you];
+            deck[you] = temp; //swapping and shuffling
+        }
+        // print shuffled deck
+        for (int you = 0; you < 1; you++) //printing one card at a time
+       {
+            System.out.println("Your hand : " + deck[you]); //displaying a random card
+        }
+         String[] decks = new String[n];
+        for (int me = 0; me < FACES.length; me++) {
+            for (int b = 0; b < SUITS.length; b++) {
+                decks[SUITS.length*me + b] = FACES[me] + " of " + SUITS[b];
+            } 
+        }
+        // shuffle
+        for (int me = 0; me < n; me++) {
+            int r = me + (int) (Math.random() * (n-me)); //using random function
+            String temp = decks[r];
+            decks[r] = decks[me];
+            decks[me] = temp; //swapping and shuffling
+        }
+        // print shuffled deck
+        for (int me = 0; me < 1; me++) //printing one card at a time
+       {
+            System.out.println(" My hand : " + decks[me]); //displaying a random card
+    }
+    {
+    if (deck[you] > decks[me])
+    System.out.print("You win with " + deck[you]);
+    else
+    System.out.print ("I win with " + decks[me]);
+}
+}
+}
